@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #FAFAFA;
+  --primary-ink: #0A0A0A;
+  --secondary-ink: #525252;
+  --border-sharp: #1A1A1A;
+  --border-light: #D4D4D4;
+  --accent-signal: #DC2626;
+  --accent-caution: #F59E0B;
+  --grid-line: #E5E5E5;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-canvas: var(--canvas);
+  --color-ink: var(--primary-ink);
+  --color-ink-secondary: var(--secondary-ink);
+  --color-border: var(--border-sharp);
+  --color-border-light: var(--border-light);
+  --color-signal: var(--accent-signal);
+  --color-caution: var(--accent-caution);
+  --color-grid: var(--grid-line);
+  
+  --font-heading: var(--font-mono);
+  --font-body: var(--font-grotesk);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--canvas);
+  color: var(--primary-ink);
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--action-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
