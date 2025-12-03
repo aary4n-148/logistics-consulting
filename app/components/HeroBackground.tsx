@@ -35,7 +35,7 @@ export default function HeroBackground() {
     const nodeCount = isMobile ? 15 : 60;
     const connectionDistance = isMobile ? 100 : 180;
     const mouseRadius = 150;
-    const mobileOpacityMultiplier = isMobile ? 0.2 : 1;
+    const mobileOpacityMultiplier = isMobile ? 0.5 : 1;
 
     const resize = () => {
       canvas.width = window.innerWidth;

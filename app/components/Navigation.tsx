@@ -34,7 +34,7 @@ export default function Navigation({ onBookCall }: NavigationProps) {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between md:h-20">
+        <div className="flex h-16 items-center justify-between pt-1 md:h-20 md:pt-0">
           <a
             href="#"
             className="font-[family-name:var(--font-mono)] text-base font-bold uppercase tracking-wider text-[#0A0A0A] md:text-lg"

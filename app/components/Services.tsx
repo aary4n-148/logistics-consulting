@@ -403,7 +403,7 @@ export default function Services({ onBookCall }: ServicesProps) {
           transition={{ duration: 0.5 }}
           className="border-2 border-[#0A0A0A]"
         >
-          <div className="grid grid-cols-[auto_1fr_auto_auto] items-center bg-zinc-950 px-6 py-4 sm:px-8">
+          <div className="hidden sm:grid sm:grid-cols-[auto_1fr_auto_auto] items-center bg-zinc-950 px-6 py-4 sm:px-8">
             <span className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-500">
               ID
             </span>
@@ -423,33 +423,54 @@ export default function Services({ onBookCall }: ServicesProps) {
               <article key={service.id} className={`border-b-2 last:border-b-0 ${isActive ? "border-zinc-800" : "border-[#E5E5E5]"}`}>
                 <button
                   onClick={() => toggleService(service.id)}
-                  className={`grid w-full grid-cols-[auto_1fr_auto_auto] items-center px-6 py-8 text-left transition-all sm:px-8 sm:py-10 ${
+                  className={`w-full px-4 py-6 text-left transition-all sm:grid sm:grid-cols-[auto_1fr_auto_auto] sm:items-center sm:px-8 sm:py-10 ${
                     isActive ? "bg-zinc-950" : "bg-white hover:bg-[#FAFAFA]"
                   }`}
                 >
-                  <span className={`font-[family-name:var(--font-mono)] text-xl font-bold sm:text-2xl ${isActive ? "text-[#DC2626]" : "text-[#0A0A0A]"}`}>
-                    {service.id}
-                  </span>
-                  <div className="pl-6 sm:pl-8">
-                    <span className={`font-[family-name:var(--font-mono)] text-lg font-bold uppercase tracking-tight sm:text-xl lg:text-2xl ${
-                      isActive ? "text-white" : "text-[#0A0A0A]"
+                  <div className="flex items-start justify-between gap-4 sm:contents">
+                    <div className="flex items-start gap-4 sm:contents">
+                      <span className={`font-[family-name:var(--font-mono)] text-lg font-bold sm:text-2xl ${isActive ? "text-[#DC2626]" : "text-[#0A0A0A]"}`}>
+                        {service.id}
+                      </span>
+                      <div className="sm:pl-8">
+                        <span className={`font-[family-name:var(--font-mono)] text-base font-bold uppercase tracking-tight sm:text-xl lg:text-2xl ${
+                          isActive ? "text-white" : "text-[#0A0A0A]"
+                        }`}>
+                          {service.title}
+                        </span>
+                        <div className="mt-2 sm:hidden">
+                          <span className={`block font-[family-name:var(--font-mono)] text-xl font-bold tabular-nums ${
+                            isActive ? "text-white" : "text-[#0A0A0A]"
+                          }`}>
+                            {service.heroMetric}
+                          </span>
+                          <span className={`block font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider ${
+                            isActive ? "text-zinc-500" : "text-[#737373]"
+                          }`}>
+                            {service.heroLabel}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center border-2 sm:hidden ${
+                      isActive ? "border-zinc-700 text-white" : "border-[#0A0A0A] text-[#0A0A0A]"
                     }`}>
-                      {service.title}
-                    </span>
+                      {isActive ? <Minus size={18} /> : <Plus size={18} />}
+                    </div>
                   </div>
-                  <div className="pr-6 text-right sm:pr-10">
-                    <span className={`block font-[family-name:var(--font-mono)] text-2xl font-bold tabular-nums sm:text-3xl lg:text-4xl ${
+                  <div className="hidden pr-10 text-right sm:block">
+                    <span className={`block font-[family-name:var(--font-mono)] text-3xl font-bold tabular-nums lg:text-4xl ${
                       isActive ? "text-white" : "text-[#0A0A0A]"
                     }`}>
                       {service.heroMetric}
                     </span>
-                    <span className={`block font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider sm:text-sm ${
+                    <span className={`block font-[family-name:var(--font-mono)] text-sm uppercase tracking-wider ${
                       isActive ? "text-zinc-500" : "text-[#737373]"
                     }`}>
                       {service.heroLabel}
                     </span>
                   </div>
-                  <div className={`flex h-12 w-12 items-center justify-center border-2 ${
+                  <div className={`hidden h-12 w-12 items-center justify-center border-2 sm:flex ${
                     isActive ? "border-zinc-700 text-white" : "border-[#0A0A0A] text-[#0A0A0A]"
                   }`}>
                     {isActive ? <Minus size={20} /> : <Plus size={20} />}
@@ -465,7 +486,7 @@ export default function Services({ onBookCall }: ServicesProps) {
                       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="bg-zinc-950 px-6 pb-12 pt-4 sm:px-8 sm:pb-16">
+                      <div className="bg-zinc-950 px-4 pb-10 pt-2 sm:px-8 sm:pb-16 sm:pt-4">
                         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
                           <div className="space-y-8">
                             <span className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 sm:text-sm">
