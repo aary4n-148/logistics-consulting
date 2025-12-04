@@ -60,7 +60,7 @@ export default function Navigation({ onBookCall }: NavigationProps) {
             ))}
             <button
               onClick={onBookCall}
-              className="h-10 bg-[#0A0A0A] px-5 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1A1A1A]"
+              className="h-10 cursor-pointer bg-[#0A0A0A] px-5 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1A1A1A]"
               aria-label="Book a strategy call"
             >
               Book Call
@@ -69,7 +69,7 @@ export default function Navigation({ onBookCall }: NavigationProps) {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex h-10 w-10 items-center justify-center border border-[#1A1A1A] text-[#0A0A0A] md:hidden"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center border border-[#1A1A1A] text-[#0A0A0A] md:hidden"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
@@ -107,7 +107,7 @@ export default function Navigation({ onBookCall }: NavigationProps) {
                     setIsMobileMenuOpen(false);
                     onBookCall();
                   }}
-                  className="h-14 w-full bg-[#0A0A0A] font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-white transition-colors active:bg-[#DC2626] sm:hover:bg-[#1A1A1A]"
+                  className="h-14 w-full cursor-pointer bg-[#0A0A0A] font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-white transition-colors active:bg-[#DC2626] sm:hover:bg-[#1A1A1A]"
                   aria-label="Book a strategy call"
                 >
                   Book Strategy Call
