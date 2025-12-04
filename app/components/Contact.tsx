@@ -9,7 +9,11 @@ interface ContactProps {
 
 export default function Contact({ onBookCall }: ContactProps) {
   return (
-    <section id="contact" className="bg-[#FAFAFA] py-24 sm:py-32">
+    <section
+      id="contact"
+      className="bg-[#FAFAFA] py-24 sm:py-32"
+      aria-labelledby="contact-heading"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           <motion.div
@@ -19,12 +23,15 @@ export default function Contact({ onBookCall }: ContactProps) {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-6 flex items-center gap-4">
-              <div className="h-[2px] w-12 bg-[#DC2626]" />
+              <div className="h-[2px] w-12 bg-[#DC2626]" aria-hidden="true" />
               <span className="font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-[0.2em] text-[#DC2626]">
                 Contact
               </span>
             </div>
-            <h2 className="mb-8 font-[family-name:var(--font-mono)] text-4xl font-bold uppercase leading-[1.1] tracking-tight text-[#0A0A0A] sm:text-5xl lg:text-6xl">
+            <h2
+              id="contact-heading"
+              className="mb-8 font-[family-name:var(--font-mono)] text-4xl font-bold uppercase leading-[1.1] tracking-tight text-[#0A0A0A] sm:text-5xl lg:text-6xl"
+            >
               Ready to
               <br />
               <span className="text-[#DC2626]">optimize?</span>
@@ -35,9 +42,12 @@ export default function Contact({ onBookCall }: ContactProps) {
               improvement.
             </p>
 
-            <div className="space-y-6">
+            <address className="not-italic">
               <div className="flex items-center gap-6">
-                <div className="flex h-14 w-14 items-center justify-center border-2 border-[#1A1A1A] bg-white">
+                <div
+                  className="flex h-14 w-14 items-center justify-center border-2 border-[#1A1A1A] bg-white"
+                  aria-hidden="true"
+                >
                   <Mail size={24} className="text-[#0A0A0A]" />
                 </div>
                 <div>
@@ -46,13 +56,14 @@ export default function Contact({ onBookCall }: ContactProps) {
                   </span>
                   <a
                     href="mailto:hello@mapxlogistics.com"
-                    className="font-[family-name:var(--font-mono)] text-lg font-bold text-[#0A0A0A] transition-colors hover:text-[#DC2626]"
+                    className="font-[family-name:var(--font-mono)] text-lg font-bold text-[#0A0A0A] underline decoration-[#DC2626] decoration-2 underline-offset-4 transition-colors active:text-[#DC2626] sm:no-underline sm:hover:text-[#DC2626]"
+                    aria-label="Send email to hello@mapxlogistics.com"
                   >
                     hello@mapxlogistics.com
                   </a>
                 </div>
               </div>
-            </div>
+            </address>
           </motion.div>
 
           <motion.div
@@ -78,12 +89,14 @@ export default function Contact({ onBookCall }: ContactProps) {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 onClick={onBookCall}
-                className="group inline-flex h-14 w-full items-center justify-center gap-3 bg-[#0A0A0A] px-8 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1A1A1A] sm:text-base"
+                className="group inline-flex h-14 w-full items-center justify-center gap-3 bg-[#0A0A0A] px-8 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-white transition-colors active:bg-[#DC2626] sm:text-base sm:hover:bg-[#1A1A1A]"
+                aria-label="Book a free strategy call with MapxLogistics"
               >
                 Book Strategy Call
                 <ArrowRight
                   size={20}
                   className="transition-transform group-hover:translate-x-1"
+                  aria-hidden="true"
                 />
               </motion.button>
 
@@ -94,20 +107,6 @@ export default function Contact({ onBookCall }: ContactProps) {
           </motion.div>
         </div>
       </div>
-
-      <footer className="mt-32 border-t border-[#1A1A1A] pt-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <span className="font-[family-name:var(--font-mono)] text-base font-bold uppercase tracking-wider text-[#0A0A0A]">
-              MAP<span className="text-[#DC2626]">x</span>LOGISTICS
-            </span>
-            <p className="font-[family-name:var(--font-grotesk)] text-sm text-[#525252]">
-              © {new Date().getFullYear()} MAPxLOGISTICS. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </section>
   );
 }

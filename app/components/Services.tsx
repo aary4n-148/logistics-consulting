@@ -2,365 +2,160 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, ArrowRight } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 interface ServiceItem {
-  name: string;
+  title: string;
   description: string;
 }
 
 interface Service {
   id: string;
   title: string;
-  heroMetric: string;
-  heroLabel: string;
+  contextBlurb: string;
   items: ServiceItem[];
-  visualization: "route" | "network" | "bars";
 }
 
 const services: Service[] = [
   {
     id: "01",
-    title: "Amazon DSP Operations",
-    heroMetric: "98.2%",
-    heroLabel: "Scorecard Rating",
+    title: "AMAZON DSP LOGISTICS",
+    contextBlurb:
+      "End-to-end operational support for Delivery Service Partners. We bridge the gap between Amazon's rigorous compliance standards and the practical realities of running a profitable fleet.",
     items: [
-      { 
-        name: "DSP Acquisition & Launch", 
-        description: "DSP interview coaching, financial vetting, and 'Business-in-a-Box' infrastructure setup for new DSP contract holders." 
+      {
+        title: "Acquisition & Launch Strategy",
+        description:
+          "Interview coaching, financial vetting, and 'Business-in-a-Box' infrastructure setup.",
       },
-      { 
-        name: "DSP Scorecard & Profitability", 
-        description: "Systems to consistently hit 'Fantastic Plus', reduce DCR/RTS defects, and maximize DSP per-route bonuses." 
+      {
+        title: "Scorecard & Profitability",
+        description:
+          "Systems to hit 'Fantastic Plus', reduce DCR defects, and maximize per-route bonuses.",
       },
-      { 
-        name: "DSP Crisis & Asset Control", 
-        description: "Rapid DSP interim management staffing, damage tracking protocols, and end-of-lease liability reduction." 
+      {
+        title: "Crisis & Asset Management",
+        description:
+          "Rapid interim staffing, damage tracking protocols, and lease liability reduction.",
       },
     ],
-    visualization: "route",
   },
   {
     id: "02",
-    title: "Amazon Relay & Freight",
-    heroMetric: "500+",
-    heroLabel: "Carrier Network",
+    title: "AMAZON RELAY & FREIGHT",
+    contextBlurb:
+      "Optimization for the Amazon Middle Mile. We help carriers secure consistent freight, protect their safety ratings, and ensure their trucks aren't moving air.",
     items: [
-      { 
-        name: "Amazon Relay & Load Board", 
-        description: "Authority setup, Relay onboarding compliance, and load board strategies to reduce deadhead miles." 
+      {
+        title: "Relay Onboarding & Load Board",
+        description:
+          "Authority setup, Amazon compliance, and tender strategies to reduce deadhead miles.",
       },
-      { 
-        name: "Safety & Audit Defense", 
-        description: "DOT audit preparation, ELD monitoring, and BASIC score repair to prevent authority revocation." 
+      {
+        title: "Safety & Audit Defense",
+        description:
+          "DOT audit preparation, ELD monitoring, and BASIC score repair to prevent revocation.",
       },
-      { 
-        name: "Fleet & Lane Strategy", 
-        description: "Dedicated contract negotiation, fuel optimization programs, and carrier network scaling." 
+      {
+        title: "Fleet & Lane Strategy",
+        description:
+          "Asset utilization analysis and dedicated contract negotiation to stabilize revenue.",
       },
     ],
-    visualization: "network",
   },
   {
     id: "03",
-    title: "Amazon FBA Growth",
-    heroMetric: "99.7%",
-    heroLabel: "Inventory Accuracy",
+    title: "AMAZON FBA",
+    contextBlurb:
+      "For brands scaling on Amazon. We align your inventory logistics with marketplace demand to protect margins and ensure you never run out of stock during peak.",
     items: [
-      { 
-        name: "Marketplace Growth (PPC)", 
-        description: "Seller Central SEO, listing optimization, and PPC advertising management to boost rank and ROAS." 
+      {
+        title: "Marketplace Growth (PPC)",
+        description:
+          "Seller Central SEO, listing optimization, and PPC ad strategies to boost rank.",
       },
-      { 
-        name: "Inventory & Logistics Logic", 
-        description: "FBA vs. FBM margin analysis, restock limit forecasting, and 3PL warehousing setup." 
+      {
+        title: "Inventory & Inbound Planning",
+        description:
+          "FBA margin analysis, restock limit forecasting, and peak season prep.",
       },
-      { 
-        name: "Brand & Returns Recovery", 
-        description: "Account health protection, IP defense, and reverse logistics grading to recover capital from returns." 
+      {
+        title: "Brand & Returns Recovery",
+        description:
+          "Account health protection and reverse logistics grading to recover capital from returns.",
       },
     ],
-    visualization: "bars",
+  },
+  {
+    id: "04",
+    title: "PARCEL SHIPPING B2C PERFORMANCE",
+    contextBlurb:
+      "Optimizing the 'Merchant Fulfilled' (MFN) and direct-to-consumer experience. We help you negotiate better rates and deliver faster than the competition.",
+    items: [
+      {
+        title: "Amazon MFN Strategy",
+        description:
+          "Meeting Amazon's strict shipping performance metrics without using FBA.",
+      },
+      {
+        title: "Carrier Rate Negotiation",
+        description:
+          "Benchmarking and negotiating rates with carriers.",
+      },
+      {
+        title: "Delivery Speed & Reliability",
+        description:
+          "Optimizing carrier mix to improve 'Click-to-Door' speed and customer satisfaction.",
+      },
+    ],
+  },
+  {
+    id: "05",
+    title: "TRANSPORTATION NETWORK OPTIMIZATION",
+    contextBlurb:
+      "Designing resilient logistics networks for B2B and B2C flows. We engineer routes and linehauls that reduce mileage and improve service stability.",
+    items: [
+      {
+        title: "Network Topology Design",
+        description:
+          "Domestic and cross-border node analysis to shorten transit times.",
+      },
+      {
+        title: "Route Engineering",
+        description:
+          "Logic-based path optimization to reduce fuel consumption and driver hours.",
+      },
+      {
+        title: "Linehaul Management",
+        description:
+          "Connecting long-distance distribution centers with efficient freight corridors.",
+      },
+    ],
+  },
+  {
+    id: "06",
+    title: "WAREHOUSE INVENTORY & CONTROL",
+    contextBlurb:
+      "Inside the four walls. We streamline how goods move through your facility, ensuring inventory accuracy and operational throughput.",
+    items: [
+      {
+        title: "WMS & Tech Integration",
+        description:
+          "Selecting and implementing the right Warehouse Management Systems.",
+      },
+      {
+        title: "Workflow & Process Design",
+        description:
+          "Optimizing pick-and-pack layouts to increase units per hour (UPH).",
+      },
+      {
+        title: "Inventory Accuracy",
+        description:
+          "Cycle count protocols and shrinkage reduction strategies.",
+      },
+    ],
   },
 ];
-
-function RouteEfficiencyChart({ isActive }: { isActive: boolean }) {
-  return (
-    <svg viewBox="0 0 400 180" className="h-full w-full">
-      <line x1="50" y1="150" x2="370" y2="150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <line x1="50" y1="20" x2="50" y2="150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-
-      {[50, 130, 210, 290, 370].map((x, i) => (
-        <g key={x}>
-          <line x1={x} y1="150" x2={x} y2="155" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-          <text x={x} y="168" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="monospace">
-            {i * 2}h
-          </text>
-        </g>
-      ))}
-
-      {[150, 110, 70, 30].map((y, i) => (
-        <g key={y}>
-          <line x1="45" y1={y} x2="50" y2={y} stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-          <text x="40" y={y + 3} textAnchor="end" fill="rgba(255,255,255,0.5)" fontSize="9" fontFamily="monospace">
-            {i * 50}
-          </text>
-        </g>
-      ))}
-
-      <text x="210" y="182" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace">
-        TIME ON ROAD
-      </text>
-      <text x="20" y="85" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace" transform="rotate(-90, 20, 85)">
-        PACKAGES
-      </text>
-
-      <motion.path
-        d="M 50 130 Q 90 120 130 100 T 210 70 T 290 50 T 370 35"
-        fill="none"
-        stroke="#DC2626"
-        strokeWidth="1"
-        strokeLinecap="round"
-        initial={{ pathLength: 0 }}
-        animate={isActive ? { pathLength: 1 } : { pathLength: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      />
-
-      {[
-        { x: 50, y: 130 },
-        { x: 130, y: 100 },
-        { x: 210, y: 70 },
-        { x: 290, y: 50 },
-        { x: 370, y: 35 },
-      ].map((point, i) => (
-        <motion.circle
-          key={i}
-          cx={point.x}
-          cy={point.y}
-          r="3"
-          fill="#DC2626"
-          initial={{ scale: 0 }}
-          animate={isActive ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.2, delay: 0.3 * i }}
-        />
-      ))}
-
-      <motion.circle
-        r="5"
-        fill="#09090b"
-        stroke="#DC2626"
-        strokeWidth="2"
-        initial={{ opacity: 0 }}
-        animate={
-          isActive
-            ? {
-                opacity: 1,
-                cx: [50, 130, 210, 290, 370],
-                cy: [130, 100, 70, 50, 35],
-              }
-            : { opacity: 0 }
-        }
-        transition={{ duration: 2, ease: "easeInOut", delay: 0.5, repeat: Infinity, repeatDelay: 1 }}
-      />
-    </svg>
-  );
-}
-
-function NetworkNodeMap({ isActive }: { isActive: boolean }) {
-  const nodes = [
-    { x: 80, y: 90, label: "HUB A" },
-    { x: 200, y: 40, label: "DC" },
-    { x: 320, y: 90, label: "HUB B" },
-    { x: 140, y: 140, label: "SPOKE" },
-    { x: 260, y: 140, label: "SPOKE" },
-  ];
-
-  const connections = [
-    [0, 1], [1, 2], [0, 3], [1, 3], [1, 4], [2, 4], [3, 4],
-  ];
-
-  return (
-    <svg viewBox="0 0 400 180" className="h-full w-full">
-      {connections.map(([from, to], i) => (
-        <motion.line
-          key={`${from}-${to}`}
-          x1={nodes[from].x}
-          y1={nodes[from].y}
-          x2={nodes[to].x}
-          y2={nodes[to].y}
-          stroke="rgba(255,255,255,0.2)"
-          strokeWidth="1"
-          strokeDasharray="4 2"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={isActive ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
-          transition={{ duration: 0.4, delay: i * 0.1 }}
-        />
-      ))}
-
-      {nodes.map((node, i) => (
-        <g key={i}>
-          <motion.circle
-            cx={node.x}
-            cy={node.y}
-            r={i === 1 ? 12 : 8}
-            fill={i === 1 ? "#DC2626" : "#09090b"}
-            stroke={i === 1 ? "#DC2626" : "rgba(255,255,255,0.4)"}
-            strokeWidth="1"
-            initial={{ scale: 0 }}
-            animate={isActive ? { scale: 1 } : { scale: 0 }}
-            transition={{ duration: 0.3, delay: 0.5 + i * 0.1 }}
-          />
-          <motion.text
-            x={node.x}
-            y={node.y + 24}
-            textAnchor="middle"
-            fill="rgba(255,255,255,0.5)"
-            fontSize="8"
-            fontFamily="monospace"
-            initial={{ opacity: 0 }}
-            animate={isActive ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.3, delay: 0.8 + i * 0.05 }}
-          >
-            {node.label}
-          </motion.text>
-        </g>
-      ))}
-
-      {isActive && (
-        <motion.circle
-          r="4"
-          fill="#DC2626"
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: [0, 1, 1, 1, 0],
-            cx: [nodes[0].x, nodes[1].x, nodes[1].x, nodes[2].x, nodes[2].x],
-            cy: [nodes[0].y, nodes[1].y, nodes[1].y, nodes[2].y, nodes[2].y],
-          }}
-          transition={{
-            duration: 3,
-            delay: 1,
-            repeat: Infinity,
-            repeatDelay: 0.5,
-            times: [0, 0.3, 0.5, 0.8, 1],
-          }}
-        />
-      )}
-
-      <motion.text
-        x="350"
-        y="170"
-        textAnchor="end"
-        fill="rgba(255,255,255,0.4)"
-        fontSize="8"
-        fontFamily="monospace"
-        initial={{ opacity: 0 }}
-        animate={isActive ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 1.2 }}
-      >
-        LIVE TRACKING
-      </motion.text>
-    </svg>
-  );
-}
-
-function InventoryBarChart({ isActive }: { isActive: boolean }) {
-  const bars = [
-    { height: 70, label: "SKU A", optimal: true },
-    { height: 95, label: "SKU B", optimal: true },
-    { height: 45, label: "SKU C", optimal: false },
-    { height: 85, label: "SKU D", optimal: true },
-    { height: 110, label: "SKU E", optimal: false },
-  ];
-
-  const breakEvenY = 60;
-
-  return (
-    <svg viewBox="0 0 400 180" className="h-full w-full">
-      <line x1="40" y1="150" x2="380" y2="150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-      <line x1="40" y1="20" x2="40" y2="150" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-
-      {[150, 110, 70, 30].map((y, i) => (
-        <g key={y}>
-          <line x1="35" y1={y} x2="40" y2={y} stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-          <text x="30" y={y + 3} textAnchor="end" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">
-            {i * 250}
-          </text>
-        </g>
-      ))}
-
-      <text x="15" y="85" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace" transform="rotate(-90, 15, 85)">
-        UNITS
-      </text>
-
-      {bars.map((bar, i) => {
-        const x = 60 + i * 65;
-        const barHeight = bar.height;
-        return (
-          <g key={i}>
-            <motion.rect
-              x={x}
-              y={150 - barHeight}
-              width="45"
-              height={barHeight}
-              fill={bar.optimal ? "rgba(255,255,255,0.15)" : "#DC2626"}
-              initial={{ scaleY: 0 }}
-              animate={isActive ? { scaleY: 1 } : { scaleY: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              style={{ originY: 1, transformBox: "fill-box" }}
-            />
-            <motion.text
-              x={x + 22.5}
-              y="165"
-              textAnchor="middle"
-              fill="rgba(255,255,255,0.5)"
-              fontSize="8"
-              fontFamily="monospace"
-              initial={{ opacity: 0 }}
-              animate={isActive ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.3, delay: 0.6 + i * 0.05 }}
-            >
-              {bar.label}
-            </motion.text>
-          </g>
-        );
-      })}
-
-      <motion.line
-        x1="55"
-        y1={150 - breakEvenY}
-        x2="375"
-        y2={150 - breakEvenY}
-        stroke="#DC2626"
-        strokeWidth="1"
-        strokeDasharray="8 4"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={isActive ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      />
-
-      <motion.g
-        initial={{ opacity: 0 }}
-        animate={isActive ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 1.2 }}
-      >
-        <text x="58" y={150 - breakEvenY - 6} textAnchor="start" fill="#DC2626" fontSize="8" fontFamily="monospace" fontWeight="bold">
-          BREAK-EVEN
-        </text>
-      </motion.g>
-    </svg>
-  );
-}
-
-function ServiceVisualization({ type, isActive }: { type: "route" | "network" | "bars"; isActive: boolean }) {
-  switch (type) {
-    case "route":
-      return <RouteEfficiencyChart isActive={isActive} />;
-    case "network":
-      return <NetworkNodeMap isActive={isActive} />;
-    case "bars":
-      return <InventoryBarChart isActive={isActive} />;
-  }
-}
 
 interface ServicesProps {
   onBookCall?: () => void;
@@ -374,7 +169,11 @@ export default function Services({ onBookCall }: ServicesProps) {
   };
 
   return (
-    <section id="services" className="bg-white py-24 sm:py-32">
+    <section
+      id="services"
+      className="bg-white py-24 sm:py-32"
+      aria-labelledby="services-heading"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -384,12 +183,15 @@ export default function Services({ onBookCall }: ServicesProps) {
           className="mb-16 sm:mb-20"
         >
           <div className="mb-6 flex items-center gap-4">
-            <div className="h-[2px] w-12 bg-[#DC2626]" />
+            <div className="h-[2px] w-12 bg-[#DC2626]" aria-hidden="true" />
             <span className="font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-[0.2em] text-[#DC2626]">
               Services
             </span>
           </div>
-          <h2 className="font-[family-name:var(--font-mono)] text-4xl font-bold uppercase leading-[1.1] tracking-tight text-[#0A0A0A] sm:text-5xl lg:text-6xl">
+          <h2
+            id="services-heading"
+            className="font-[family-name:var(--font-mono)] text-4xl font-bold uppercase leading-[1.1] tracking-tight text-[#0A0A0A] sm:text-5xl lg:text-6xl"
+          >
             End-to-end
             <br />
             <span className="text-[#DC2626]">solutions</span>
@@ -401,112 +203,133 @@ export default function Services({ onBookCall }: ServicesProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="border-2 border-[#0A0A0A]"
+          className="overflow-hidden border border-zinc-200"
         >
-          <div className="hidden sm:grid sm:grid-cols-[auto_1fr_auto_auto] items-center bg-zinc-950 px-6 py-4 sm:px-8">
+          {/* Dark header bar - hidden on mobile, visible on sm+ */}
+          <div className="hidden items-center justify-between bg-zinc-950 px-4 py-4 sm:flex sm:px-6 lg:px-8">
+            <div className="flex items-center gap-6 lg:gap-8">
+              <span className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-500">
+                ID
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-500">
+                Service
+              </span>
+            </div>
             <span className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-500">
-              ID
+              Expand
             </span>
-            <span className="pl-6 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-500 sm:pl-8">
-              Service
-            </span>
-            <span className="pr-6 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-500 sm:pr-10">
-              Metric
-            </span>
-            <span className="w-12" />
           </div>
 
-          {services.map((service) => {
-            const isActive = activeId === service.id;
+          <div className="divide-y divide-zinc-200">
+            {services.map((service) => {
+              const isActive = activeId === service.id;
 
-            return (
-              <article key={service.id} className={`border-b-2 last:border-b-0 ${isActive ? "border-zinc-800" : "border-[#E5E5E5]"}`}>
-                <button
-                  onClick={() => toggleService(service.id)}
-                  className={`w-full px-4 py-6 text-left transition-all sm:grid sm:grid-cols-[auto_1fr_auto_auto] sm:items-center sm:px-8 sm:py-10 ${
-                    isActive ? "bg-zinc-950" : "bg-white hover:bg-[#FAFAFA]"
+              return (
+                <article
+                  key={service.id}
+                  className={`transition-colors duration-300 ${
+                    isActive ? "bg-zinc-950" : "bg-white"
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-4 sm:contents">
-                    <div className="flex items-start gap-4 sm:contents">
-                      <span className={`font-[family-name:var(--font-mono)] text-lg font-bold sm:text-2xl ${isActive ? "text-[#DC2626]" : "text-[#0A0A0A]"}`}>
+                  <button
+                    onClick={() => toggleService(service.id)}
+                    className={`group flex w-full items-center justify-between px-4 py-4 text-left transition-colors sm:px-6 sm:py-6 lg:px-8 lg:py-7 ${
+                      isActive
+                        ? "bg-zinc-950"
+                        : "bg-white hover:bg-zinc-50"
+                    }`}
+                    aria-expanded={isActive}
+                    aria-controls={`service-content-${service.id}`}
+                  >
+                    <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
+                      <span
+                        className={`hidden font-[family-name:var(--font-mono)] text-base font-normal tabular-nums sm:block sm:text-lg ${
+                          isActive ? "text-zinc-500" : "text-zinc-400"
+                        }`}
+                      >
                         {service.id}
                       </span>
-                      <div className="sm:pl-8">
-                        <span className={`font-[family-name:var(--font-mono)] text-base font-bold uppercase tracking-tight sm:text-xl lg:text-2xl ${
+                      <h3
+                        className={`font-[family-name:var(--font-mono)] text-base font-bold uppercase tracking-tight sm:text-xl lg:text-2xl ${
                           isActive ? "text-white" : "text-[#0A0A0A]"
-                        }`}>
-                          {service.title}
-                        </span>
-                        <div className="mt-2 sm:hidden">
-                          <span className={`block font-[family-name:var(--font-mono)] text-xl font-bold tabular-nums ${
-                            isActive ? "text-white" : "text-[#0A0A0A]"
-                          }`}>
-                            {service.heroMetric}
-                          </span>
-                          <span className={`block font-[family-name:var(--font-mono)] text-xs uppercase tracking-wider ${
-                            isActive ? "text-zinc-500" : "text-[#737373]"
-                          }`}>
-                            {service.heroLabel}
-                          </span>
-                        </div>
-                      </div>
+                        }`}
+                      >
+                        {service.title}
+                      </h3>
                     </div>
-                    <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center border-2 sm:hidden ${
-                      isActive ? "border-zinc-700 text-white" : "border-[#0A0A0A] text-[#0A0A0A]"
-                    }`}>
+                    <div
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center border transition-colors sm:h-12 sm:w-12 ${
+                        isActive
+                          ? "border-zinc-700 text-white"
+                          : "border-[#0A0A0A] text-[#0A0A0A] group-hover:border-[#DC2626] group-hover:text-[#DC2626]"
+                      }`}
+                    >
                       {isActive ? <Minus size={18} /> : <Plus size={18} />}
                     </div>
-                  </div>
-                  <div className="hidden pr-10 text-right sm:block">
-                    <span className={`block font-[family-name:var(--font-mono)] text-3xl font-bold tabular-nums lg:text-4xl ${
-                      isActive ? "text-white" : "text-[#0A0A0A]"
-                    }`}>
-                      {service.heroMetric}
-                    </span>
-                    <span className={`block font-[family-name:var(--font-mono)] text-sm uppercase tracking-wider ${
-                      isActive ? "text-zinc-500" : "text-[#737373]"
-                    }`}>
-                      {service.heroLabel}
-                    </span>
-                  </div>
-                  <div className={`hidden h-12 w-12 items-center justify-center border-2 sm:flex ${
-                    isActive ? "border-zinc-700 text-white" : "border-[#0A0A0A] text-[#0A0A0A]"
-                  }`}>
-                    {isActive ? <Minus size={20} /> : <Plus size={20} />}
-                  </div>
-                </button>
+                  </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isActive && (
                     <motion.div
+                      id={`service-content-${service.id}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                      transition={{
+                        height: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+                        opacity: { duration: 0.3, delay: 0.1 },
+                      }}
                       className="overflow-hidden"
                     >
-                      <div className="bg-zinc-950 px-4 pb-10 pt-2 sm:px-8 sm:pb-16 sm:pt-4">
-                        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-                          <div className="space-y-8">
-                            <span className="font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 sm:text-sm">
+                      <div className="bg-zinc-950 px-4 pb-10 pt-4 sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
+                        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+                          {/* Mobile: Context Blurb First / Desktop: Services Manifest First */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.4 }}
+                            className="order-1 lg:order-2"
+                          >
+                            <span className="mb-4 block font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-[0.2em] text-zinc-600">
+                              // Context
+                            </span>
+                            <p className="font-[family-name:var(--font-grotesk)] text-lg leading-relaxed text-zinc-400 sm:text-xl">
+                              {service.contextBlurb}
+                            </p>
+                          </motion.div>
+
+                          <div className="order-2 lg:order-1">
+                            <span className="mb-4 block font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-[0.2em] text-zinc-600">
                               // Services Manifest
                             </span>
-                            <div className="space-y-6">
+                            <div className="space-y-5">
                               {service.items.map((item, i) => (
                                 <motion.div
-                                  key={item.name}
+                                  key={item.title}
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: 0.1 + i * 0.1 }}
-                                  className="border-l-2 border-[#DC2626] pl-6"
+                                  transition={{
+                                    delay: 0.25 + i * 0.1,
+                                    duration: 0.4,
+                                  }}
+                                  className="border-l border-zinc-800 pl-4 sm:pl-5"
                                 >
-                                  <span className="block font-[family-name:var(--font-mono)] text-base text-white sm:text-lg">
-                                    <span className="text-[#DC2626]">{`>`}</span> {item.name}
-                                  </span>
-                                  <span className="mt-1 block font-[family-name:var(--font-grotesk)] text-base text-zinc-400 sm:text-lg">
-                                    {item.description}
-                                  </span>
+                                  <div className="flex items-start gap-2">
+                                    <span
+                                      className="mt-0.5 font-[family-name:var(--font-mono)] text-[#DC2626]"
+                                      aria-hidden="true"
+                                    >
+                                      {">"}
+                                    </span>
+                                    <div>
+                                      <h4 className="block font-[family-name:var(--font-mono)] text-sm font-bold text-white sm:text-base">
+                                        {item.title}
+                                      </h4>
+                                      <p className="mt-1 block font-[family-name:var(--font-grotesk)] text-sm text-zinc-500 sm:text-base">
+                                        {item.description}
+                                      </p>
+                                    </div>
+                                  </div>
                                 </motion.div>
                               ))}
                             </div>
@@ -515,34 +338,23 @@ export default function Services({ onBookCall }: ServicesProps) {
                               <motion.button
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
+                                transition={{ delay: 0.5, duration: 0.4 }}
                                 onClick={onBookCall}
-                                className="mt-8 inline-flex h-12 items-center gap-3 bg-white px-6 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-zinc-950 transition-colors hover:bg-zinc-200"
+                                className="mt-8 inline-flex h-12 items-center gap-3 border-2 border-white bg-white px-6 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-wider text-zinc-950 transition-colors active:bg-zinc-200 sm:h-12 sm:border sm:bg-transparent sm:px-6 sm:text-sm sm:text-white sm:hover:bg-white sm:hover:text-zinc-950 sm:active:bg-zinc-200"
                               >
-                                Book Strategy Call
-                                <ArrowRight size={18} />
+                                Discuss This Service
                               </motion.button>
                             )}
-                          </div>
-
-                          <div className="flex flex-col">
-                            <span className="mb-6 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 sm:text-sm">
-                              // {service.visualization === "route" && "Route Efficiency"}
-                              {service.visualization === "network" && "Carrier Network"}
-                              {service.visualization === "bars" && "Inventory Levels"}
-                            </span>
-                            <div className="flex-1 min-h-[240px] sm:min-h-[280px]">
-                              <ServiceVisualization type={service.visualization} isActive={isActive} />
-                            </div>
                           </div>
                         </div>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </article>
-            );
-          })}
+                </article>
+              );
+            })}
+          </div>
         </motion.div>
       </div>
     </section>

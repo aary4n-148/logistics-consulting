@@ -10,7 +10,10 @@ interface HeroProps {
 
 export default function Hero({ onBookCall }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFA]">
+    <section
+      className="relative overflow-hidden bg-[#FAFAFA]"
+      aria-labelledby="hero-heading"
+    >
       <HeroBackground />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-2rem)] max-w-7xl flex-col items-center justify-center px-4 pb-16 pt-24 text-center sm:px-6 lg:px-8">
@@ -24,7 +27,10 @@ export default function Hero({ onBookCall }: HeroProps) {
             Supply Chain & DSP Consulting
           </span>
 
-          <h1 className="mb-6 font-[family-name:var(--font-mono)] text-4xl font-bold uppercase leading-[0.95] tracking-tight text-[#0A0A0A] sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1
+            id="hero-heading"
+            className="mb-6 font-[family-name:var(--font-mono)] text-4xl font-bold uppercase leading-[0.95] tracking-tight text-[#0A0A0A] sm:text-5xl md:text-6xl lg:text-7xl"
+          >
             Precision logistics
             <br />
             <span className="text-[#DC2626]">Maximum efficiency.</span>
@@ -40,18 +46,21 @@ export default function Hero({ onBookCall }: HeroProps) {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               onClick={onBookCall}
-              className="group inline-flex h-12 items-center justify-center gap-2 bg-[#0A0A0A] px-6 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1A1A1A]"
+              className="group inline-flex h-14 w-full items-center justify-center gap-2 bg-[#0A0A0A] px-6 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-white transition-colors active:bg-[#DC2626] sm:h-12 sm:w-auto sm:hover:bg-[#1A1A1A]"
+              aria-label="Book a free strategy call with our logistics consultants"
             >
               Book Strategy Call
               <ArrowRight
                 size={16}
                 className="transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
               />
             </motion.button>
 
             <a
               href="#services"
-              className="inline-flex h-12 items-center justify-center border border-[#1A1A1A] bg-white px-6 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-[#0A0A0A] transition-colors hover:bg-[#0A0A0A] hover:text-white"
+              className="inline-flex h-14 w-full items-center justify-center border-2 border-[#1A1A1A] bg-white px-6 font-[family-name:var(--font-mono)] text-sm font-bold uppercase tracking-wider text-[#0A0A0A] transition-colors active:bg-[#0A0A0A] active:text-white sm:h-12 sm:w-auto sm:border sm:hover:bg-[#0A0A0A] sm:hover:text-white"
+              aria-label="Explore our logistics consulting services"
             >
               Explore Services
             </a>
@@ -63,6 +72,7 @@ export default function Hero({ onBookCall }: HeroProps) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-10"
+          aria-hidden="true"
         >
           <div className="flex flex-col items-center gap-2">
             <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.3em] text-[#737373]">

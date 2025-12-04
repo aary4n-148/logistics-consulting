@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <text x="600" y="280" font-family="monospace" font-size="72" font-weight="bold" fill="#FAFAFA" text-anchor="middle">MAP<tspan fill="#DC2626">x</tspan>LOGISTICS</text>
+  <text x="600" y="360" font-family="sans-serif" font-size="32" fill="#A3A3A3" text-anchor="middle">Precision Logistics, Maximum Efficiency</text>
+  <line x1="500" y1="400" x2="700" y2="400" stroke="#DC2626" stroke-width="3"/>
+</svg>
