@@ -37,8 +37,7 @@ export default function Hero({ onBookCall }: HeroProps) {
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl font-[family-name:var(--font-grotesk)] text-lg text-[#525252] sm:text-xl">
-            We help DSPs and supply chain operators optimize their fleets,
-            reduce costs, and scale operations with data-driven strategies.
+            Amazon logistics. Freight. Warehousing. Parcel. We optimize what pays you.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
