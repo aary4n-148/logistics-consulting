@@ -69,7 +69,7 @@ export default function Navigation({ onBookCall }: NavigationProps) {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center border border-[#1A1A1A] text-[#0A0A0A] md:hidden"
+            className="flex h-11 w-11 cursor-pointer items-center justify-center border border-[#1A1A1A] text-[#0A0A0A] transition-colors active:bg-[#0A0A0A] active:text-white md:hidden"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"

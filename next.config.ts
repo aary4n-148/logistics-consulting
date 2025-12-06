@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["192.168.*.*", "172.16.*.*", "10.*.*.*"],
   poweredByHeader: false,
   compress: true,
   images: {

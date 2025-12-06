@@ -13,11 +13,11 @@ export default function Footer() {
             MAP<span className="text-[#DC2626]">x</span>LOGISTICS
           </a>
           <nav aria-label="Footer navigation">
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-4 sm:gap-6">
               <li>
                 <a
                   href="#services"
-                  className="font-[family-name:var(--font-grotesk)] text-sm text-[#525252] underline decoration-transparent underline-offset-4 transition-colors active:text-[#0A0A0A] active:decoration-[#DC2626] sm:no-underline sm:hover:text-[#0A0A0A]"
+                  className="inline-block px-2 py-2 font-[family-name:var(--font-grotesk)] text-sm text-[#525252] transition-colors active:text-[#0A0A0A] sm:hover:text-[#0A0A0A]"
                 >
                   Services
                 </a>
@@ -25,7 +25,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#about"
-                  className="font-[family-name:var(--font-grotesk)] text-sm text-[#525252] underline decoration-transparent underline-offset-4 transition-colors active:text-[#0A0A0A] active:decoration-[#DC2626] sm:no-underline sm:hover:text-[#0A0A0A]"
+                  className="inline-block px-2 py-2 font-[family-name:var(--font-grotesk)] text-sm text-[#525252] transition-colors active:text-[#0A0A0A] sm:hover:text-[#0A0A0A]"
                 >
                   About
                 </a>
@@ -33,7 +33,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="font-[family-name:var(--font-grotesk)] text-sm text-[#525252] underline decoration-transparent underline-offset-4 transition-colors active:text-[#0A0A0A] active:decoration-[#DC2626] sm:no-underline sm:hover:text-[#0A0A0A]"
+                  className="inline-block px-2 py-2 font-[family-name:var(--font-grotesk)] text-sm text-[#525252] transition-colors active:text-[#0A0A0A] sm:hover:text-[#0A0A0A]"
                 >
                   Contact
                 </a>

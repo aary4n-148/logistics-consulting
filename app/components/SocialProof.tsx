@@ -17,8 +17,8 @@ const metrics = [
   },
   {
     id: "03",
-    value: "0%",
-    label: "FBA INBOUND DENIAL RATE",
+    value: "100%",
+    label: "FBA INBOUND ACCEPTANCE RATE",
     description: "Flawless inventory acceptance record.",
   },
   {
@@ -40,7 +40,6 @@ const metrics = [
     description: "Network structure resilience.",
   },
 ];
-
 
 export default function SocialProof() {
   return (

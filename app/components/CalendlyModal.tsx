@@ -69,10 +69,10 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
               </div>
               <button
                 onClick={onClose}
-                className="flex h-10 w-10 items-center justify-center border border-[#1A1A1A] text-[#0A0A0A] transition-colors hover:bg-[#0A0A0A] hover:text-white"
+                className="flex h-11 w-11 items-center justify-center border border-[#1A1A1A] text-[#0A0A0A] transition-colors active:bg-[#0A0A0A] active:text-white sm:hover:bg-[#0A0A0A] sm:hover:text-white"
                 aria-label="Close modal"
               >
-                <X size={18} />
+                <X size={18} aria-hidden="true" />
               </button>
             </div>
 
@@ -81,9 +81,8 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
                 src="https://calendly.com/mapxlogistics/strategy"
                 width="100%"
                 height="100%"
-                frameBorder="0"
                 title="Schedule a strategy call with MapxLogistics"
-                className="bg-white"
+                className="border-0 bg-white"
               />
             </div>
           </motion.div>

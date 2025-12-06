@@ -23,8 +23,8 @@ export default function Hero({ onBookCall }: HeroProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-4xl"
         >
-          <span className="mb-3 inline-block border border-[#1A1A1A] bg-white px-4 py-1.5 font-[family-name:var(--font-mono)] text-xs font-bold uppercase tracking-[0.15em] text-[#0A0A0A]">
-            Supply Chain & DSP Consulting
+          <span className="mb-3 inline-block border border-[#1A1A1A] bg-white px-3 py-1 font-[family-name:var(--font-mono)] text-[10px] font-bold uppercase tracking-[0.08em] text-[#0A0A0A] sm:px-4 sm:py-1.5 sm:text-xs sm:tracking-[0.15em]">
+            E2E Supply Chain & Logistics Consulting
           </span>
 
           <h1
@@ -33,11 +33,11 @@ export default function Hero({ onBookCall }: HeroProps) {
           >
             Precision logistics
             <br />
-            <span className="text-[#DC2626]">Maximum efficiency.</span>
+            <span className="text-[#DC2626]">Maximum efficiency</span>
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl font-[family-name:var(--font-grotesk)] text-lg text-[#525252] sm:text-xl">
-            Amazon logistics. Freight. Warehousing. Parcel. We optimize what pays you.
+            From warehouse to doorstep. Amazon logistics, freight, and parcel—every mile optimized.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
