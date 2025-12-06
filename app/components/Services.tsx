@@ -31,22 +31,22 @@ const services: Service[] = [
     title: "AMAZON DSP LOGISTICS",
     Visual: AmazonDSPVisual,
     contextBlurb:
-      "End-to-end operational support for Delivery Service Partners. We bridge the gap between Amazon's rigorous compliance standards and the practical realities of running a profitable fleet.",
+      "Complete support for Delivery Service Partners. We handle Amazon's strict rules so you can run a profitable, stress-free fleet.",
     items: [
       {
         title: "Acquisition & Launch Strategy",
         description:
-          "Interview coaching, financial vetting, and 'Business-in-a-Box' infrastructure setup.",
+          "Interview coaching, financial checks, and a complete 'Business-in-a-Box' setup for new owners.",
       },
       {
         title: "Scorecard & Profitability",
         description:
-          "Systems to hit 'Fantastic Plus', reduce DCR defects, and maximize per-route bonuses.",
+          "Systems to hit 'Fantastic Plus' scores, stop returned packages, and maximize your cash bonuses.",
       },
       {
         title: "Crisis & Asset Management",
         description:
-          "Rapid interim staffing, damage tracking protocols, and lease liability reduction.",
+          "Emergency staffing, daily van damage tracking, and lowering repair bills when leases end.",
       },
     ],
   },
@@ -55,22 +55,22 @@ const services: Service[] = [
     title: "AMAZON RELAY & FREIGHT",
     Visual: RelayFreightVisual,
     contextBlurb:
-      "Optimization for the Amazon Middle Mile. We help carriers secure consistent freight, protect their safety ratings, and ensure their trucks aren't moving air.",
+      "We help trucking carriers get steady work with Amazon, protect their safety ratings, and stop trucks from driving empty.",
     items: [
       {
         title: "Relay Onboarding & Load Board",
         description:
-          "Authority setup, Amazon compliance, and tender strategies to reduce deadhead miles.",
+          "Get your business set up on Amazon Relay and find the best loads so you don't drive empty.",
       },
       {
         title: "Safety & Audit Defense",
         description:
-          "DOT audit preparation, ELD monitoring, and BASIC score repair to prevent revocation.",
+          "Prepare for DOT audits and fix your safety scores so the government doesn't shut you down.",
       },
       {
         title: "Fleet & Lane Strategy",
         description:
-          "Asset utilization analysis and dedicated contract negotiation to stabilize revenue.",
+          "Secure dedicated contracts to keep your fleet moving and your income steady.",
       },
     ],
   },
@@ -79,22 +79,22 @@ const services: Service[] = [
     title: "AMAZON FBA",
     Visual: FBAVisual,
     contextBlurb:
-      "For brands scaling on Amazon. We align your inventory logistics with marketplace demand to protect margins and ensure you never run out of stock during peak.",
+      "For brands selling on Amazon. We help you rank higher, sell more, and manage inventory so you don't waste money on fees.",
     items: [
       {
         title: "Marketplace Growth (PPC)",
         description:
-          "Seller Central SEO, listing optimization, and PPC ad strategies to boost rank.",
+          "Get your products to page one. We fix your listings and run ads that actually make a profit.",
       },
       {
         title: "Inventory & Inbound Planning",
         description:
-          "FBA margin analysis, restock limit forecasting, and peak season prep.",
+          "Stop running out of stock. We forecast exactly what you need to send in so you are ready for peak season.",
       },
       {
         title: "Brand & Returns Recovery",
         description:
-          "Account health protection and reverse logistics grading to recover capital from returns.",
+          "Protect your account from suspension and turn customer returns back into cash.",
       },
     ],
   },
@@ -103,22 +103,22 @@ const services: Service[] = [
     title: "PARCEL SHIPPING B2C PERFORMANCE",
     Visual: ParcelB2CVisual,
     contextBlurb:
-      "Optimizing the direct-to-consumer experience. We audit every invoice, eliminate empty miles, and engineer a network that delivers faster than the competition.",
+      "We help you ship faster and cheaper. We negotiate better rates, check every bill for errors, and make sure your trucks never drive empty.",
     items: [
       {
         title: "Strategic Network Design",
         description:
-          "Optimizing injections, load utilization, and transit times for B2C/B2B flows at best-in-class carrier rates.",
+          "Plan the best routes to speed up delivery and cut your shipping costs.",
       },
       {
         title: "Invoice Audit & Verification",
         description:
-          "Eliminating the 2-10% average carrier overcharge through automated invoice auditing and error recovery.",
+          "Carriers often overcharge by mistake. We check every single invoice to get your money back.",
       },
       {
         title: "Round Trip Design",
         description:
-          "Zero tolerance for zero-load drive time. We build broker-backed return loops to maximize driver utility.",
+          "Stop driving empty trucks. We find paid loads for the return trip so you make money both ways.",
       },
     ],
   },
@@ -127,22 +127,22 @@ const services: Service[] = [
     title: "TRANSPORTATION NETWORK OPTIMIZATION",
     Visual: TransportNetworkVisual,
     contextBlurb:
-      "Designing resilient logistics networks for B2B and B2C flows. We engineer routes that minimize empty miles and maximize asset utility.",
+      "We build smarter shipping networks for your business. We plan routes that cut down mileage and make sure your trucks are always making money.",
     items: [
       {
         title: "Network Topology Design",
         description:
-          "Domestic and cross-border node analysis to shorten transit times and operational costs.",
+          "Analyze your shipping map to find faster routes and lower your delivery costs.",
       },
       {
         title: "Round Trip Design",
         description:
-          "Zero tolerance for zero-load drive time. We design broker-backed return loops to maximize driver utility.",
+          "Never drive an empty truck. We find paid loads for the return trip so you earn profit both ways.",
       },
       {
         title: "Route Engineering",
         description:
-          "Logic-based path optimization to reduce fuel consumption and driver hours.",
+          "Plan the most direct path for every shipment to save on fuel and driver wages.",
       },
     ],
   },
@@ -151,22 +151,22 @@ const services: Service[] = [
     title: "WAREHOUSE INVENTORY & CONTROL",
     Visual: WarehouseVisual,
     contextBlurb:
-      "Inside the four walls. We streamline how goods move through your facility, ensuring inventory accuracy and operational throughput.",
+      "We fix what happens inside your warehouse. We organize your layout to speed up shipping and stop inventory mistakes.",
     items: [
       {
         title: "Inventory Accuracy & Control",
         description:
-          "Cycle count protocols and shrinkage reduction strategies to ensure 99.9% stock fidelity.",
+          "Stop losing inventory. We set up strict counting rules to prevent theft and make sure your numbers are always right.",
       },
       {
         title: "Supply & Demand Planning",
         description:
-          "Algorithmic forecasting to align procurement with market velocity, preventing stockouts and overstock.",
+          "Order exactly what you need. We use sales data to predict demand so you never run out of best-sellers or get stuck with unsold goods.",
       },
       {
         title: "WMS & Tech Integration",
         description:
-          "Selecting and implementing the right Warehouse Management Systems for real-time visibility.",
+          "Upgrade your technology. We help you pick and set up the right software to track every single item in real-time.",
       },
     ],
   },
