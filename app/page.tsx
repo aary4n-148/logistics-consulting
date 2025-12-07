@@ -7,13 +7,13 @@ import Services from "./components/Services";
 import SocialProof from "./components/SocialProof";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import CalendlyModal from "./components/CalendlyModal";
+import BookingWizard from "./components/BookingWizard";
 
 export default function Home() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
 
-  const openCalendly = () => setIsCalendlyOpen(true);
-  const closeCalendly = () => setIsCalendlyOpen(false);
+  const openWizard = () => setIsWizardOpen(true);
+  const closeWizard = () => setIsWizardOpen(false);
 
   return (
     <>
@@ -23,15 +23,15 @@ export default function Home() {
       >
         Skip to main content
       </a>
-      <Navigation onBookCall={openCalendly} />
+      <Navigation onBookCall={openWizard} />
       <main id="main-content" role="main">
-        <Hero onBookCall={openCalendly} />
-        <Services onBookCall={openCalendly} />
+        <Hero onBookCall={openWizard} />
+        <Services onBookCall={openWizard} />
         <SocialProof />
-        <Contact onBookCall={openCalendly} />
+        <Contact onBookCall={openWizard} />
       </main>
       <Footer />
-      <CalendlyModal isOpen={isCalendlyOpen} onClose={closeCalendly} />
+      <BookingWizard isOpen={isWizardOpen} onClose={closeWizard} />
     </>
   );
 }

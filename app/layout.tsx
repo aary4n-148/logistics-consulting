@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import PostHogProvider from "./components/PostHogProvider";
 
 const SITE_URL = "https://mapxlogistics.com";
 const SITE_NAME = "MapxLogistics";
@@ -221,7 +222,7 @@ export default function RootLayout({
       <body
         className={`${spaceMono.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   );
