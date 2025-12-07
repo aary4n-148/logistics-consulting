@@ -188,7 +188,7 @@ export default function HeroBackground() {
       ctx.fill();
     };
 
-    const drawDashedLine = (
+    const drawLine = (
       x1: number,
       y1: number,
       x2: number,
@@ -196,22 +196,18 @@ export default function HeroBackground() {
       opacity: number,
       isAccent: boolean
     ) => {
-      ctx.save();
-      ctx.setLineDash([4, 4]);
-
       ctx.beginPath();
       ctx.moveTo(x1, y1);
       ctx.lineTo(x2, y2);
 
       if (isAccent) {
         ctx.strokeStyle = `rgba(220, 38, 38, ${opacity})`;
+        ctx.lineWidth = 1;
       } else {
         ctx.strokeStyle = `rgba(15, 23, 42, ${opacity})`;
+        ctx.lineWidth = 0.75;
       }
-      ctx.lineWidth = 0.8;
       ctx.stroke();
-
-      ctx.restore();
     };
 
     const animate = () => {
@@ -266,17 +262,19 @@ export default function HeroBackground() {
               (mouse.x - midX) ** 2 + (mouse.y - midY) ** 2
             );
 
-            let opacity = (1 - distance / connectionDistance) * 0.12 * mobileOpacityMultiplier;
             const isHubConnection = nodes[i].type === "hub" || nodes[j].type === "hub";
             const nodeGlow = Math.max(nodes[i].glowIntensity, nodes[j].glowIntensity);
 
+            const baseOpacity = isHubConnection ? 0.18 : 0.08;
+            let opacity = (1 - distance / connectionDistance) * baseOpacity * mobileOpacityMultiplier;
+
             if (mouse.active && distToMouse < mouseRadius) {
-              const boost = (1 - distToMouse / mouseRadius) * 0.25;
+              const boost = (1 - distToMouse / mouseRadius) * 0.12;
               opacity += boost;
             }
 
-            const lineOpacity = Math.min(opacity + nodeGlow * 0.15, 0.4 * mobileOpacityMultiplier);
-            drawDashedLine(
+            const lineOpacity = Math.min(opacity + nodeGlow * 0.1, 0.35 * mobileOpacityMultiplier);
+            drawLine(
               nodes[i].x,
               nodes[i].y,
               nodes[j].x,
@@ -356,10 +354,10 @@ export default function HeroBackground() {
         }
 
         if (node.type === "hub") {
-          const pinOpacity = (0.55 + proximity * 0.35 + node.glowIntensity * 0.1) * mobileOpacityMultiplier;
+          const pinOpacity = (0.6 + proximity * 0.3 + node.glowIntensity * 0.1) * mobileOpacityMultiplier;
           drawLocationPin(node.x, node.y, node.scale, pinOpacity);
         } else {
-          const waypointOpacity = (0.4 + proximity * 0.4 + node.glowIntensity * 0.2) * mobileOpacityMultiplier;
+          const waypointOpacity = (0.5 + proximity * 0.3 + node.glowIntensity * 0.2) * mobileOpacityMultiplier;
           drawWaypoint(node.x, node.y, node.scale, waypointOpacity);
         }
       });
@@ -432,6 +430,13 @@ export default function HeroBackground() {
             linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
+        }}
+      />
+      {/* Radial fade to keep text area clear */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 70% 60% at 50% 45%, rgba(250, 250, 250, 0.85) 0%, rgba(250, 250, 250, 0.4) 50%, transparent 100%)`,
         }}
       />
     </motion.div>

@@ -18,8 +18,8 @@ const metrics = [
   {
     id: "03",
     value: "100%",
-    label: "FBA INBOUND ACCEPTANCE RATE",
-    description: "Flawless inventory acceptance record.",
+    label: "OPTIMIZATION GUARANTEE",
+    description: "Network structure resilience.",
   },
   {
     id: "04",
@@ -36,8 +36,8 @@ const metrics = [
   {
     id: "06",
     value: "100%",
-    label: "OPTIMIZATION GUARANTEE",
-    description: "Network structure resilience.",
+    label: "FBA INBOUND ACCEPTANCE RATE",
+    description: "Flawless inventory acceptance record.",
   },
 ];
 
@@ -50,10 +50,10 @@ export default function SocialProof() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="mb-16 lg:mb-20"
         >
           <div className="mb-6 flex items-center gap-4">
@@ -92,13 +92,13 @@ export default function SocialProof() {
             return (
               <motion.div
                 key={metric.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ 
-                  duration: 0.4, 
+                  duration: 0.5, 
                   delay: index * 0.08,
-                  ease: [0.25, 0.1, 0.25, 1]
+                  ease: "easeOut"
                 }}
                 className={`
                   group relative border-b border-[#262626] p-6 transition-all duration-300

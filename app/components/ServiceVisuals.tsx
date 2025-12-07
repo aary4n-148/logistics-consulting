@@ -109,7 +109,7 @@ export function AmazonDSPVisual() {
       ariaLabel="Route performance chart showing optimized delivery pace achieving Fantastic Plus rating"
       legend={
         <>
-          <LegendItem color="#71717A" label="Standard Pace" variant="dashed" />
+          <LegendItem color="#71717A" label="Standard Pace" />
           <LegendItem color={COLORS.accent} label="Optimized Performance" />
         </>
       }
@@ -215,6 +215,15 @@ export function AmazonDSPVisual() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
           />
           <motion.circle
+            cx={innerWidth}
+            cy={0}
+            r="4"
+            fill={COLORS.textMuted}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.4, duration: 0.3 }}
+          />
+          <motion.circle
             cx={innerWidth * 0.75}
             cy={0}
             r="4"
@@ -225,20 +234,16 @@ export function AmazonDSPVisual() {
           />
         </g>
 
-        <motion.text
+        <text
           x={chartWidth - 8}
           y={12}
-          fill={COLORS.success}
-          fontSize="10"
-          fontWeight="bold"
+          fill="#FAFAFA"
+          fontSize="8"
           textAnchor="end"
           fontFamily="monospace"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.4 }}
         >
           FANTASTIC+
-        </motion.text>
+        </text>
       </svg>
     </FigureWrapper>
   );
@@ -398,19 +403,16 @@ export function RelayFreightVisual() {
           </motion.g>
         ))}
 
-        <motion.text
-          x={width - 8}
+        <text
+          x={width / 2}
           y={14}
-          fill={COLORS.textMuted}
+          fill="#FAFAFA"
           fontSize="8"
-          textAnchor="end"
+          textAnchor="middle"
           fontFamily="monospace"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
         >
           LIVE NETWORK
-        </motion.text>
+        </text>
       </svg>
     </FigureWrapper>
   );
@@ -424,7 +426,7 @@ export function FBAVisual() {
   const gridWidth = cols * cellSize + (cols - 1) * gap;
   const gridHeight = rows * cellSize + (rows - 1) * gap;
   const width = 280;
-  const height = 160;
+  const height = 130;
   const gridX = (width - gridWidth) / 2;
   const gridY = 30;
 
@@ -502,29 +504,16 @@ export function FBAVisual() {
         />
 
         <text
-          x={20}
+          x={width / 2}
           y={18}
-          fill={COLORS.textMuted}
-          fontSize="9"
+          fill="#FAFAFA"
+          fontSize="8"
           fontFamily="monospace"
+          textAnchor="middle"
         >
           INVENTORY
         </text>
 
-        <motion.text
-          x={width - 20}
-          y={18}
-          fill={COLORS.success}
-          fontSize="9"
-          fontWeight="bold"
-          textAnchor="end"
-          fontFamily="monospace"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-        >
-          IPI &gt; 800
-        </motion.text>
       </svg>
     </FigureWrapper>
   );
@@ -687,80 +676,14 @@ export function ParcelB2CVisual() {
           </motion.g>
         ))}
 
-        <motion.g
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: [0, 1, 1, 0],
-            x: [origin.x - 6, injectionHub.x - 30, injectionHub.x - 30, injectionHub.x - 30],
-            y: [origin.y - 4, injectionHub.y - 4, injectionHub.y - 4, injectionHub.y - 4],
-          }}
-          transition={{
-            duration: 2.5,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatDelay: 4.5,
-          }}
-        >
-          <rect x={0} y={0} width="12" height="8" fill={COLORS.accent} rx="1" />
-          <rect x={8} y={2} width="5" height="6" fill={COLORS.accent} rx="1" />
-          <circle cx={3} cy={9} r="2" fill={COLORS.textMuted} />
-          <circle cx={10} cy={9} r="2" fill={COLORS.textMuted} />
-        </motion.g>
-
-        <motion.g
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 1, 0, 0] }}
-          transition={{
-            duration: 2.5,
-            times: [0, 0.2, 0.8, 0.9, 1],
-            repeat: Infinity,
-            repeatDelay: 4.5,
-          }}
-        >
-          <rect
-            x={70}
-            y={55}
-            width="55"
-            height="14"
-            fill={COLORS.dark}
-            stroke={COLORS.border}
-            strokeWidth="0.5"
-            rx="2"
-          />
-          <text
-            x={97}
-            y={64}
-            fill={COLORS.success}
-            fontSize="6"
-            fontWeight="bold"
-            textAnchor="middle"
-            fontFamily="monospace"
-          >
-            FTL: 100% UTIL
-          </text>
-        </motion.g>
-
-        <motion.text
-          x={width - 12}
-          y={14}
-          fill={COLORS.success}
-          fontSize="8"
-          fontWeight="bold"
-          textAnchor="end"
-          fontFamily="monospace"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 0.4 }}
-        >
-          ZONE SKIP ACTIVE
-        </motion.text>
 
         <text
-          x={12}
+          x={width / 2}
           y={14}
-          fill={COLORS.textMuted}
+          fill="#FAFAFA"
           fontSize="8"
           fontFamily="monospace"
+          textAnchor="middle"
         >
           INJECTION NETWORK
         </text>
@@ -879,12 +802,12 @@ export function TransportNetworkVisual() {
         </motion.g>
 
         <motion.text
-          x={width - 12}
-          y={14}
-          fill={COLORS.success}
+          x={160}
+          y={93}
+          fill="#FAFAFA"
           fontSize="9"
           fontWeight="bold"
-          textAnchor="end"
+          textAnchor="middle"
           fontFamily="monospace"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -893,7 +816,7 @@ export function TransportNetworkVisual() {
           0% DEADHEAD
         </motion.text>
 
-        <text x={12} y={14} fill={COLORS.textMuted} fontSize="8" fontFamily="monospace">
+        <text x={width / 2} y={14} fill="#FAFAFA" fontSize="8" fontFamily="monospace" textAnchor="middle">
           PROFIT LOOP
         </text>
       </svg>
@@ -1008,29 +931,14 @@ export function WarehouseVisual() {
           transition={{ duration: 3, delay: 1, ease: "linear", repeat: Infinity, repeatDelay: 1 }}
         />
 
-        <text x={12} y={14} fill={COLORS.textMuted} fontSize="8" fontFamily="monospace">
+        <text x={width / 2} y={14} fill="#FAFAFA" fontSize="8" fontFamily="monospace" textAnchor="middle">
           SLOTTING LOGIC
         </text>
-
-        <motion.text
-          x={width - 12}
-          y={14}
-          fill={COLORS.success}
-          fontSize="9"
-          fontWeight="bold"
-          textAnchor="end"
-          fontFamily="monospace"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 0.5 }}
-        >
-          PICK OPTIMIZED
-        </motion.text>
 
         <text
           x={width / 2}
           y={goldenZoneY + shelfHeight / 2 + 3}
-          fill={COLORS.textDim}
+          fill="#FAFAFA"
           fontSize="5"
           textAnchor="middle"
           fontFamily="monospace"
