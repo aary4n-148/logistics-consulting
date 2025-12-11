@@ -55,11 +55,11 @@ export default function Contact({ onBookCall }: ContactProps) {
                     Email us
                   </span>
                   <a
-                    href="mailto:hello@mapxlogistics.com"
+                    href="mailto:info@mapxlogistics.com"
                     className="font-[family-name:var(--font-mono)] text-lg font-bold text-[#0A0A0A] underline decoration-[#DC2626] decoration-2 underline-offset-4 transition-colors active:text-[#DC2626] sm:no-underline sm:hover:text-[#DC2626]"
-                    aria-label="Send email to hello@mapxlogistics.com"
+                    aria-label="Send email to info@mapxlogistics.com"
                   >
-                    hello@mapxlogistics.com
+                    info@mapxlogistics.com
                   </a>
                 </div>
               </div>

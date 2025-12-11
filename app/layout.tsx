@@ -156,7 +156,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      email: "hello@mapxlogistics.com",
+      email: "info@mapxlogistics.com",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/logo.svg`,
@@ -179,7 +179,7 @@ const jsonLd = {
       name: SITE_NAME,
       description: SITE_DESCRIPTION,
       url: SITE_URL,
-      email: "hello@mapxlogistics.com",
+      email: "info@mapxlogistics.com",
       areaServed: { "@type": "Country", name: "United States" },
       hasOfferCatalog: {
         "@type": "OfferCatalog",

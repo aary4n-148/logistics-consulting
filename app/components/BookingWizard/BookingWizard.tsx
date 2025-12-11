@@ -118,6 +118,28 @@ export default function BookingWizard({ isOpen, onClose }: BookingWizardProps) {
         return;
       }
 
+      try {
+        const emailResponse = await fetch("/api/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: stepOneData.name.trim(),
+            email: stepOneData.email.trim(),
+            phone: stepOneData.phone.trim(),
+            serviceCategory: serviceLabel,
+            followUpAnswers: stepTwoData.answers,
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          console.error("Failed to send email notification");
+        }
+      } catch (emailError) {
+        console.error("Error sending email:", emailError);
+      }
+
       trackLeadSubmitted({
         name: stepOneData.name,
         email: stepOneData.email,
