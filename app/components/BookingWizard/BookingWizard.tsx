@@ -14,7 +14,7 @@ interface BookingWizardProps {
   onClose: () => void;
 }
 
-const CALENDLY_URL = "https://calendly.com/mapxlogistics/strategy";
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
 
 export default function BookingWizard({ isOpen, onClose }: BookingWizardProps) {
   const [step, setStep] = useState(1);
@@ -146,9 +146,16 @@ export default function BookingWizard({ isOpen, onClose }: BookingWizardProps) {
         service_category: serviceLabel,
       });
 
+      if (!CALENDLY_URL) {
+        console.error("Calendly URL is not configured");
+        alert("Booking system is not configured. Please contact us directly.");
+        setIsSubmitting(false);
+        return;
+      }
+
       const params = new URLSearchParams({
-        name: stepOneData.name,
-        email: stepOneData.email,
+        name: stepOneData.name.trim(),
+        email: stepOneData.email.trim(),
       });
 
       window.location.href = `${CALENDLY_URL}?${params.toString()}`;
